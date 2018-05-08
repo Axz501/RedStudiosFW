@@ -1,0 +1,67 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+.nombreusuario{
+  color:white;
+  text-shadow: rgb(0, 0, 0) -1px -2px 1px, 
+  rgba(0, 0, 0, 0.8) 3.5px 2px 1px, 
+  -2px 0px black, 2px 0 black, 
+  0px -2px black, 0px 2px black;
+}
+@media screen and (min-width: 600px) {
+  div.hiddenlinks {
+    display: none;
+  }
+}
+#buscar{
+    margin-top: 4px;
+    float: right;
+    margin-right: 5px
+  }
+@media screen and (max-width: 600px) {
+  #buscar{
+    width: 24%;
+  }
+}
+@media screen and (min-width: 600px) {
+  #buscar{
+    width: 12%;
+  }
+}
+@media screen and (min-width: 710px) {
+  #buscar{
+    width: 175px;
+  }
+}
+#buscar:focus{
+  background-color: lightblue;
+}
+#mySidebar{
+  box-shadow: 2px 5px 10px rgba(100, 100, 100, 1);
+}
+.w3-main{
+  background-image: url(/RedStudiosFW/img/fondo.jpg);
+}
+.w3-top{
+  box-shadow: 0px 5px 10px rgb(100, 100, 100);
+}
+.redmessage{
+    display:none;
+    color:red;
+    font-style:italic;
+  }
+@media screen and (max-width: 600px) {
+  .campoinput{
+    width: 80% !important;
+  }
+}
+@media screen and (max-width: 997px) {
+  #imagenregistrar{
+    width: 50%;
+  }
+}
