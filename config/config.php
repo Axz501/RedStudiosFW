@@ -1,7 +1,7 @@
 <?php
 	define("DB_HOST", "localhost:3308");
 	define("DB_USR", "root");
-	define("DB_PASS", "hola");
+	define("DB_PASS", "holasasda");
 	define("DB_DB", "redstudio");
 	//define(DB_TYPE, "mysql");
 
