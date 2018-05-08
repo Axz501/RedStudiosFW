@@ -56,7 +56,7 @@ $('#loginform').submit(function(e){
 			loginpass : pass
         },
         success: function (data) { //en el success ponemos lo que queremos hacer cuando obtenemos la respuesta
-				alert(data);
+				//alert(data);
 				if(data==="si"){
 					alert("Sesión Iniciada");
 					location.reload(true);				
