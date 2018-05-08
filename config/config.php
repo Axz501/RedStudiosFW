@@ -13,5 +13,5 @@
         'config_dir' => 'libs/smarty/configs/',
         );
     define ("URL_BASE","/RedStudiosFW/");
-    define ("DIRECTORIO","C:/wamp64/wamp64/www/RedStudiosFW/");
+    define ("DIRECTORIO","D:/wamp64/www/RedStudiosFW/");
 ?>
