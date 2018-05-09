@@ -17,13 +17,12 @@ class Hospedaje extends ClaseBase{
         }
         $tabla="hospedaje";
         parent::__construct($tabla);
-
     }
 
 	public function getid() {
         return $this->id;
     }
-    	
+
     public function getNombre() {
         return $this->nombre;
     }
@@ -32,9 +31,6 @@ class Hospedaje extends ClaseBase{
     }
     public function getTelefono() {
         return $this->telefono;
-    }
-    public function getCorreo() {
-        return $this->correo;
     }
     public function getDescripcion() {
         return $this->descripcion;
@@ -45,6 +41,24 @@ class Hospedaje extends ClaseBase{
     public function getLocalidad() {
         return $this->localidad;
     }
+
+	public function agregar(){
+	        
+	        $nombre=$this->getNombre();
+	        $direccion=$this->getDireccion();
+	        $telefono=$this->getTelefono();
+	        $descripcion=$this->getDescripcion();
+	        $precio=$this->getPrecio();
+	        $localidad=$this->getLocalidad();
+
+	        $stmt = $this->getDB()->prepare( 
+	            "INSERT INTO hospedaje 
+	        (nombre, direccion,telefono,descripcion,precio,localidad) 
+	           VALUES (?,?,?,?,?,?)" );
+	        $stmt->bind_param("ssssis",$nombre,
+	            $direccion,$telefono,$descripcion,$precio,$localidad);
+	        return $stmt->execute();
+	    }
 
 
 }
