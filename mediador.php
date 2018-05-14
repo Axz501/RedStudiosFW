@@ -34,10 +34,11 @@ if (isset($_POST["nombre"])){
 	$datos = array($nom,$ap,$ni,$ed,$pas,$cor);
 	$controlusuario = $controlIndex->cargarControlador("usuario");
 	$ok = $controlusuario->controlnickcorreo($ni,$cor);
-	echo($ok);
 	if ($ok==="si"){
-		$controlIndex->redirect("usuario","nuevo",$datos);
+		$controlusuario->nuevo($datos);
+		//controlIndex->redirect("usuario","nuevo",$datos);
 	}
+	echo($ok);
 }
 
 $imagen = $_FILES["elegirimagen"];

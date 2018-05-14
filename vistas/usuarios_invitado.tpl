@@ -86,32 +86,7 @@
 <script language="JavaScript" type="text/javascript" src="{$url_base}js/jquery.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="{$url_base}js/bootstrap.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="{$url_base}js/functions.js"></script>
-
-<script>
-
-var mySidebar = document.getElementById("mySidebar");
-
-var overlayBg = document.getElementById("myOverlay");
-
-function w3_open() {
-    if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-        overlayBg.style.display = "none";
-    } else {
-        mySidebar.style.display = 'block';
-        overlayBg.style.display = "block";
-    }
-}
-
-function w3_close() {
-    mySidebar.style.display = "none";
-    overlayBg.style.display = "none";
-}
-document.getElementById("botonbuscar").onclick = function() {
-    document.getElementById("formbuscar").submit();
-}
-
-</script>
+<script language="JavaScript" type="text/javascript" src="{$url_base}js/barralateral.js"></script>
 
 </body>
 </html>

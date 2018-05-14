@@ -86,7 +86,15 @@ class Usuario extends ClaseBase {
            VALUES (?,?,?,?,?,?)" );
         $stmt->bind_param("ssisss",$nombre,
             $ape,$edad,$ni,$email,$password);
-        return $stmt->execute();
+        $stmt->execute();
+        if (file_exists(DIRECTORIO."img/usuarios/".$ni.".jpg")){
+            $stmt = $this->getDB()->prepare("UPDATE `redstudio`.`usuario` SET `imagen`='img/usuarios/".$ni.".jpg' WHERE `nick`='".$ni."'");
+            $stmt->execute();
+        }
+        if (file_exists(DIRECTORIO."img/usuarios/".$ni.".png")){
+            $stmt = $this->getDB()->prepare("UPDATE `redstudio`.`usuario` SET `imagen`='img/usuarios/".$ni.".png' WHERE `nick`='".$ni."'");
+            $stmt->execute();
+        }
     }
 
     public function login($email,$pass){
@@ -108,8 +116,11 @@ class Usuario extends ClaseBase {
                 Session::init();
                 Session::set('usuario_logueado', true);
                 Session::set('usuario_nick', $res->nick);
-                Session::set('usuario_nombre', $res->nombre." ".$res->apellido);
+                Session::set('usuario_nombre', ucfirst($res->nombre)." ".ucfirst($res->apellido));
                 Session::set('usuario_email', $res->email);
+                if (!empty($res->imagen)){
+                    Session::set('usuario_imagen', $res->imagen);
+                }
                 return "si";
             }
         else{
