@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-08 20:42:49
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-14 22:52:07
          compiled from "vistas\usuarios_listado.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:257045aee57510ec398-09507142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd20d496364449918c261f7b80fe3a14273050bd9' => 
     array (
       0 => 'vistas\\usuarios_listado.tpl',
-      1 => 1525809298,
+      1 => 1526338325,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'url_base' => 0,
     'proyecto' => 0,
+    'mensaje' => 0,
     'titulo' => 0,
     'usuario_nuevo' => 0,
-    'mensaje' => 0,
     'usuarios' => 0,
     'persona' => 0,
   ),
@@ -52,36 +52,29 @@ css/style.css">
 css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 css/dashboard.css" rel="stylesheet">
-
-    <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- type="text/javascript" src="js/funciones.js"><?php echo '</script'; ?>
->
     
     
   </head>
 
   <body>
-    <?php echo $_smarty_tpl->getSubTemplate ("cabezal.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+    <?php echo $_smarty_tpl->getSubTemplate ("cabecera.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-    <div class="container-fluid">
+    <?php echo $_smarty_tpl->getSubTemplate ("barralateral.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+    <?php if ($_smarty_tpl->tpl_vars['mensaje']->value!='') {?>
+      <div class="alert alert-success" role="alert"><b><?php echo $_smarty_tpl->tpl_vars['mensaje']->value;?>
+</b></div>
+    <?php }?>
+    <div class="container-fluid" id="contenidoprincipal">
       <div class="row">
-       
-        <div class="col-sm-12  col-md-12  main">
+
+        <div class="col-md-12    main">
           <h1 class="page-header">Usuarios</h1>
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
  <button id="agregar" name="agregar" class="btn btn-success pull-right" onClick="window.location='<?php echo $_smarty_tpl->tpl_vars['usuario_nuevo']->value;?>
 '">Agregar</button></h2>
           <?php if ($_smarty_tpl->tpl_vars['mensaje']->value!='') {?>
-            <div class="alert alert-danger" role="alert"><?php echo $_smarty_tpl->tpl_vars['mensaje']->value;?>
+            <div class="alert alert-success" role="alert"><?php echo $_smarty_tpl->tpl_vars['mensaje']->value;?>
 </div>
           <?php }?>
           <div class="table-responsive">
@@ -137,7 +130,20 @@ usuario/listado/mail/<?php echo $_smarty_tpl->tpl_vars['persona']->value->getId(
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <?php echo '<script'; ?>
- src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><?php echo '</script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/functions.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/barralateral.js"><?php echo '</script'; ?>
 >
 
   </body>
