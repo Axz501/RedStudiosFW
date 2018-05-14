@@ -3,7 +3,6 @@ class Hospedaje extends ClaseBase{
     public $nombre = '';
     public $direccion = '';
 	public $telefono = '';
-    public $correo = '';
 	public $descripcion = '';
 	public $precio = 0;
 	public $localidad = '';
@@ -40,6 +39,24 @@ class Hospedaje extends ClaseBase{
     }
     public function getLocalidad() {
         return $this->localidad;
+    }
+    public function setNombre($nombre){
+        $this->nombre=$nombre;
+    }
+    public function setDireccion($direccion){
+        $this->direccion=$direccion;
+    }
+    public function setTelefono($telefono){
+        $this->telefono=$telefono;
+    }
+    public function setDescripcion($descripcion){
+        $this->descripcion=$descripcion;
+    }
+    public function setPrecio($precio){
+        $this->precio=$precio;
+    }
+    public function setLocalidad($localidad){
+        $this->localidad=$localidad;
     }
 
 	public function agregar(){

@@ -8,6 +8,14 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">{$proyecto}</a>
+          
+          <a  data-toggle="modal" data-target="#modal" class="w3-bar-item w3-button w3-hide-small w3-hover-white"> Hospedaje</a>
+            <div class="w3-dropdown-hover w3-hide-large w3-hide-medium">   
+            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                <a data-toggle="modal" data-target="#modal" class="w3-bar-item w3-button w3-hover-black">
+                    Hospedaje</a>
+            </div>
+          </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
