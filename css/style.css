@@ -65,3 +65,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     width: 50%;
   }
 }
+#nombreprincipal{
+  text-shadow: rgb(255, 12, 12) -1px -2px 1px, 
+  rgba(234, 16, 16, 0.8) 3.5px 2px 1px, 
+  -2px 0px #e61111, 2px 0 #f91010, 
+  0px -2px #f50d0d, 0px 2px #fb0f0fa6;
+}
+@media screen and (min-width: 992px) {
+#contenidoprincipal{
+  margin-left: 250px;
+}
+}
+

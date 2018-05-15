@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-09 09:11:20
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-08 23:17:00
          compiled from "vistas\usuarios_invitado.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:99955aef6f9fed65d4-84040353%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:114535af22fec7776c7-76429798%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '86b7948f7413e267ea48201339e22177fb65da2b' => 
+    '23b898800c314fee810bcddec3f49bc8c27fadbb' => 
     array (
       0 => 'vistas\\usuarios_invitado.tpl',
-      1 => 1525857002,
+      1 => 1525821240,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '99955aef6f9fed65d4-84040353',
+  'nocache_hash' => '114535af22fec7776c7-76429798',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5aef6fa0197c51_69247713',
   'variables' => 
   array (
     'proyecto' => 0,
@@ -24,8 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'mensaje' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5af22fec861e29_23664504',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5aef6fa0197c51_69247713')) {function content_5aef6fa0197c51_69247713($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5af22fec861e29_23664504')) {function content_5af22fec861e29_23664504($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <title><?php echo $_smarty_tpl->tpl_vars['proyecto']->value;?>
 </title>
@@ -133,8 +133,31 @@ js/functions.js"><?php echo '</script'; ?>
 >
 
 <?php echo '<script'; ?>
- language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-js/barralateral.js"><?php echo '</script'; ?>
+>
+
+var mySidebar = document.getElementById("mySidebar");
+
+var overlayBg = document.getElementById("myOverlay");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+        overlayBg.style.display = "none";
+    } else {
+        mySidebar.style.display = 'block';
+        overlayBg.style.display = "block";
+    }
+}
+
+function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+}
+document.getElementById("botonbuscar").onclick = function() {
+    document.getElementById("formbuscar").submit();
+}
+
+<?php echo '</script'; ?>
 >
 
 </body>

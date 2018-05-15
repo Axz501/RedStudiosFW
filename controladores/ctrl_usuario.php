@@ -55,12 +55,15 @@ class ControladorUsuario extends ControladorIndex {
  	}
 	
 	//Llamar a la vista
+	//Session::init();
  	$tpl = Template::getInstance();
  	$datos = array(
     'usuarios' => $usuarios,
     'buscar' => $buscar,
     'titulo' => $titulo,
     'mensaje' => $mensaje,
+    'nombre' => Session::get('usuario_nombre'),
+    'imagen' => Session::get('usuario_imagen'),
     );
 
 	$tpl->asignar('usuario_nuevo',$this->getUrl("usuario","nuevo"));
@@ -111,13 +114,14 @@ function nuevo($datos){
 		$usr->setNick($datos[2]);
 		$usr->setEdad($datos[3]);
 		$usr->setEmail($datos[5]);
-		if($usr->agregar($datos[4])){
-			$this->redirect("usuario","invitado");
-			exit;
-		}else{
-			$mensaje="Error! No se pudo agregar el usuario";
-			$this->redirect("usuario","invitado");
-		}
+		$usr->agregar($datos[4]);
+		// if($usr->agregar($datos[4])){
+		// 	$this->redirect("usuario","invitado");
+		// 	exit;
+		// }else{
+		// 	$mensaje="Error! No se pudo agregar el usuario";
+		// 	$this->redirect("usuario","invitado");
+		// }
 	// $tpl = Template::getInstance();
 	// $tpl->asignar('titulo',"Nuevo Usuario");
 	// $tpl->asignar('buscar',"");
