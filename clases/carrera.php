@@ -15,8 +15,8 @@ class Carrera extends ClaseBase{
         parent::__construct($tabla);
     }
 
-	public function getid() {
-        return $this->id;
+	public function getidcarrera() {
+        return $this->idcarrera;
     }
 
     public function getNombre() {

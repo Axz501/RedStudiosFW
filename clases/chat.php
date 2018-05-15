@@ -1,7 +1,8 @@
 <?php
-class Materia extends ClaseBase{
-    public $idmateria = 0;
-    public $nombre = '';
+class Chat extends ClaseBase{
+    public $idchat = 0;
+    public $idEst1 = 0;
+    public $idEst2 = 0;
 
 	public function __construct($obj=NULL) {
         //$this->db=DB::conexion();
@@ -10,20 +11,22 @@ class Materia extends ClaseBase{
                 $this->$key=$value;
             }    
         }
-        $tabla="materia";
+        $tabla="chat";
         parent::__construct($tabla);
     }
 
-	public function getidmateria() {
+	public function getidchat() {
         return $this->idchat;
     }
 
-    public function getNombre() {
+    public function getidEst1() {
         return $this->nombre;
     }
 
-    public function setNombre($nombre){
-        $this->nombre=$nombre;
+        public function getidEst2() {
+        return $this->nombre;
     }
+    
+    
 }
 ?>

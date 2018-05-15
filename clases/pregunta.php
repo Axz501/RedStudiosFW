@@ -15,8 +15,8 @@ class Pregunta extends ClaseBase{
         parent::__construct($tabla);
     }
 
-	public function getid() {
-        return $this->id;
+	public function getidpregunta() {
+        return $this->idpregunta;
     }
 
     public function getidTest2() {
