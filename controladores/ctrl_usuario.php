@@ -66,6 +66,7 @@ class ControladorUsuario extends ControladorIndex {
     'imagen' => Session::get('usuario_imagen'),
     );
 
+ 	$tpl->asignar('usuario_editar',$this->getUrl("usuario","editar"));
 	$tpl->asignar('usuario_nuevo',$this->getUrl("usuario","nuevo"));
 	$tpl->mostrar('usuarios_listado',$datos);
 
@@ -99,7 +100,7 @@ function buscar($params=array()){
     'mensaje' => $mensaje,
     );
 
-	
+	$tpl->asignar('usuario_editar',$this->getUrl("usuario","editar"));
 	$tpl->asignar('usuario_nuevo',$this->getUrl("usuario","nuevo"));
 	$tpl->mostrar('usuarios_listado',$datos);
 
@@ -141,6 +142,44 @@ function invitado($params = array()){
 	$tpl->mostrar('usuarios_invitado',array());
 }
 
+function editar($params = array()){
+	Auth::estaLogueado();
+
+
+	$titulo="Editar Perfil";
+	$buscar="";
+	$mensaje="Modifica los datos que prefieras:";
+	
+	if(isset($_POST["pass2"])){
+		$usr = new Usuario();
+		$pass = $_POST["pass2"];
+		$resp = $usr->editarperfil($pass);
+		if ($resp == "contra no"){
+			$mensaje = "Contraseña actual inválida";
+		}
+		else if ($resp == "correo no"){
+			$mensaje = "Nuevo Email en uso";
+		}
+		else if (is_array($resp)){
+			$mensaje = "Los siguientes campos se han cambiado con éxito: ";
+			foreach ($resp as $value) {
+				$mensaje = $mensaje . $value . " - ";
+			}
+		}
+	}
+
+	
+	$tpl = Template::getInstance();
+	$datos = array(
+    'buscar' => $buscar,
+    'titulo' => $titulo,
+    'mensaje' => $mensaje,
+    'nombre' => Session::get('usuario_nombre'),
+    'imagen' => Session::get('usuario_imagen'),
+    'usuario_editar' => $this->getUrl("usuario","editar"),
+    );
+	$tpl->mostrar('usuarios_editar',$datos);
+}
 
 function login($datos){
 

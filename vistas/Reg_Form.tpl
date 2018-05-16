@@ -38,7 +38,7 @@
 						</div>
 						<div class="form-group" >
 							<label for="password">Contraseña:</label>
-							<input name="password" type="password" class="form-control campoinput" id="password" style="width: 70%" required>
+							<input name="password" type="password" minlength="6" title="6 letras mín." class="form-control campoinput" id="password" style="width: 70%" required>
 							<p id="avisocontra" class="redmessage">Contraseña Inválida</p>
 						</div>
 						<div class="form-group" >

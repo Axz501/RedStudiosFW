@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-14 22:52:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-14 23:50:18
          compiled from "vistas\usuarios_listado.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:257045aee57510ec398-09507142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd20d496364449918c261f7b80fe3a14273050bd9' => 
     array (
       0 => 'vistas\\usuarios_listado.tpl',
-      1 => 1526338325,
+      1 => 1526340561,
       2 => 'file',
     ),
   ),
@@ -68,7 +68,7 @@ css/dashboard.css" rel="stylesheet">
     <div class="container-fluid" id="contenidoprincipal">
       <div class="row">
 
-        <div class="col-md-12    main">
+        <div class="col-md-12 main">
           <h1 class="page-header">Usuarios</h1>
           <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
  <button id="agregar" name="agregar" class="btn btn-success pull-right" onClick="window.location='<?php echo $_smarty_tpl->tpl_vars['usuario_nuevo']->value;?>

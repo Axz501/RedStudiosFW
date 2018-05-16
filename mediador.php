@@ -52,4 +52,5 @@ if(!empty($imagen["name"])){
 	session_start();
 	copy($imagen["tmp_name"], $directory.session_id().".".$imageFileType);
 }   
+
 ?>

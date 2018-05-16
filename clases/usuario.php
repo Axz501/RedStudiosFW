@@ -97,6 +97,99 @@ class Usuario extends ClaseBase {
         }
     }
 
+    public function editarperfil($pass){
+        $stmt = $this->getDB()->prepare( "SELECT * from  usuario WHERE nick=?" );
+        $nick = Session::get('usuario_nick');
+        $datos = array();
+        $stmt->bind_param("s",$nick);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $res=$resultado->fetch_object();
+        $passdebd = $res->contra;
+        if (password_verify($pass, $passdebd)) {
+            Session::init();
+            Session::set('usuario_nombre', ucfirst($res->nombre)." ".ucfirst($res->apellido));
+
+            if(isset($_POST["email"])  && !empty($_POST["email"])){
+                $correo = $_POST["email"];
+                $query = $this->getDB()->prepare( "UPDATE usuario SET correo = '$correo' WHERE nick = '$nick'" );
+                if ($query->execute()) {
+                    array_push($datos, "Email");
+                    Session::set('usuario_email', $correo);
+                }
+                else{ return "correo no";}
+            }
+            if (isset($_POST['quitarimagen'])){
+                $query = $this->getDB()->prepare( "UPDATE usuario SET imagen = null WHERE nick = '$nick'" );
+                $query->execute();
+                array_push($datos, "Imagen Eliminada");
+                $directory = DIRECTORIO."img/usuarios/";
+                $nombreimagen = Session::get('usuario_nick');
+                if (file_exists($directory.$nombreimagen.".png")){
+                    unlink($directory.$nombreimagen.".png");
+                    Session::set('usuario_imagen', "");
+                }
+                if (file_exists($directory.$nombreimagen.".jpg")){
+                    unlink($directory.$nombreimagen.".jpg");
+                    Session::set('usuario_imagen', "");
+                }
+            }
+            $imagen = $_FILES["elegirimagen"];
+            if(!empty($imagen["name"])){
+                $target_file = basename($imagen["name"]);
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                $directory = DIRECTORIO."img/usuarios/";
+                if (!file_exists($directory)) {
+                    mkdir($directory, 0777, true);
+                }
+                $nickusr = Session::get('usuario_nick');
+                $nombreimagen = $nickusr.".".$imageFileType;
+                copy($imagen["tmp_name"], $directory.$nombreimagen);
+                if ($stmt = $this->getDB()->prepare("UPDATE usuario SET imagen = 'img/usuarios/$nombreimagen' WHERE `nick`='$nickusr'")){
+                    $stmt->execute();
+                    array_push($datos, "Imagen Subida");
+                    Session::set('usuario_imagen', "img/usuarios/".$nombreimagen);
+                }
+            } 
+            if(isset($_POST["nombre"]) && !empty($_POST["nombre"])) {
+                $nombre = $_POST["nombre"];
+                $query = $this->getDB()->prepare( "UPDATE usuario SET nombre = '$nombre' WHERE nick = '$nick'" );
+                $query->execute();
+                $nombrecompleto = Session::get('usuario_nombre');
+                $aux = explode(" ", $nombrecompleto);
+                Session::set('usuario_nombre', ucfirst($nombre)." ".ucfirst($aux[1]));
+                array_push($datos, "Nombre");
+            }
+            if(isset($_POST["apellido"]) && !empty($_POST["apellido"])){
+                $apellido = $_POST["apellido"];
+                $query = $this->getDB()->prepare( "UPDATE usuario SET apellido = '$apellido' WHERE nick = '$nick'" );
+                $query->execute();
+                $nombrecompleto = Session::get('usuario_nombre');
+                $aux = explode(" ", $nombrecompleto);
+                Session::set('usuario_nombre', ucfirst($aux[0])." ".ucfirst($apellido));
+                array_push($datos, "Apellido");
+            }
+            if(isset($_POST["pass"])  && !empty($_POST["pass"])){
+                $contra = $_POST["pass"];
+                $password = password_hash($contra, PASSWORD_DEFAULT, ['cost' => 15]);
+                $query = $this->getDB()->prepare( "UPDATE usuario SET contra = '$password' WHERE nick = '$nick'" );
+                $query->execute();
+                array_push($datos, "Contraseña");
+            }
+            if(isset($_POST["edad"])  && !empty($_POST["edad"])){
+                $edad = $_POST["edad"];
+                $query = $this->getDB()->prepare( "UPDATE usuario SET edad = '$edad' WHERE nick = '$nick'" );
+                $query->execute();
+                array_push($datos, "Edad");
+            }
+            
+            return $datos;
+        }
+        else{
+            return "contra no";
+        }
+    }
+
     public function login($email,$pass){
         ini_set("display_errors", 1);
         error_reporting(E_ALL & ~E_NOTICE);
@@ -129,6 +222,7 @@ class Usuario extends ClaseBase {
             }
         }
     }
+
     
    public function logout(){
         Session::init();

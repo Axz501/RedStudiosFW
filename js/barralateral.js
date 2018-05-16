@@ -19,3 +19,33 @@ function w3_close() {
 document.getElementById("botonbuscar").onclick = function() {
     document.getElementById("formbuscar").submit();
 }
+
+$(document).ready(function(){
+
+var mensaje = document.getElementById("mensaje");
+if (mensaje.innerHTML.includes("Nuevo Email") || mensaje.innerHTML.includes("Contraseña actual")){
+    mensaje.setAttribute("class","alert alert-danger");
+}
+$('#quitarimagen').click(function(){
+    var quitarimagen = document.getElementById('quitarimagen');
+    if (quitarimagen.checked === true){
+        $('#imageneditar').attr('src', "/RedStudiosFW/img/iconoUsuario.jpg");
+        document.getElementById("elegirimagen").value = "";
+    }
+});
+
+$("#elegirimagen").change(function(){
+    var x = document.getElementById("elegirimagen");
+    if (x.files && x.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imageneditar').attr('src', e.target.result);
+        };
+        reader.readAsDataURL(x.files[0]);
+    }
+    document.getElementById('quitarimagen').disabled = true;
+});
+    
+
+});

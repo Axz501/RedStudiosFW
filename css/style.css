@@ -44,7 +44,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 #mySidebar{
   box-shadow: 2px 5px 10px rgba(100, 100, 100, 1);
 }
-.w3-main{
+body{
   background-image: url(/RedStudiosFW/img/fondo.jpg);
 }
 .w3-top{
@@ -76,4 +76,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   margin-left: 250px;
 }
 }
+#imageneditar{
+  width: 50vw;
+}
+
 

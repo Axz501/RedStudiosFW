@@ -16,7 +16,7 @@
 </div>
     {if $nombre!="Invitado"}
     <a class="w3-bar-item w3-button w3-hover-black" href="{$url_logout}">Cerrar Sesión</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="#">Editar Perfil</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="{$usuario_editar}">Editar Perfil</a>
     <a class="w3-bar-item w3-button w3-hover-black" href="#">Eliminar Cuenta</a>
     {/if}
 </nav>
