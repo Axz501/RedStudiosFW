@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-08 23:43:29
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-14 22:33:35
          compiled from "vistas\cabezal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:147275af2362117cf27-53706997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3a4c50b02a283b6d7e1d25a442f30fc8c0d3256b' => 
     array (
       0 => 'vistas\\cabezal.tpl',
-      1 => 1525821240,
+      1 => 1526337210,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5af2362119ba72_90601992',
   'variables' => 
   array (
     'proyecto' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'buscar' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5af2362119ba72_90601992',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5af2362119ba72_90601992')) {function content_5af2362119ba72_90601992($_smarty_tpl) {?><nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -37,6 +37,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
           </button>
           <a class="navbar-brand" href="#"><?php echo $_smarty_tpl->tpl_vars['proyecto']->value;?>
 </a>
+          
+          <a  data-toggle="modal" data-target="#modal" class="w3-bar-item w3-button w3-hide-small w3-hover-white"> Hospedaje</a>
+            <div class="w3-dropdown-hover w3-hide-large w3-hide-medium">   
+            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                <a data-toggle="modal" data-target="#modal" class="w3-bar-item w3-button w3-hover-black">
+                    Hospedaje</a>
+            </div>
+          </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
