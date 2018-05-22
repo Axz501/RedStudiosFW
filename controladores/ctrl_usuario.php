@@ -64,6 +64,7 @@ class ControladorUsuario extends ControladorIndex {
     'mensaje' => $mensaje,
     'nombre' => Session::get('usuario_nombre'),
     'imagen' => Session::get('usuario_imagen'),
+    'usuario_perfil' => $this->getUrl("usuario","perfil"),
     );
 
  	$tpl->asignar('usuario_editar',$this->getUrl("usuario","editar"));
@@ -80,7 +81,7 @@ function buscar($params=array()){
 	$mensaje="";
 	$usuarios=array();
 	if(isset($_POST["buscar"]) && $_POST["buscar"]!="" ){
-			$titulo="Buscando..";
+			$titulo="Búsqueda";
 	 		$usuario=new Usuario();
 	 		$buscar=$_POST["buscar"];
 			$usuarios=$usuario->getBusqueda($buscar);	
@@ -92,12 +93,16 @@ function buscar($params=array()){
 	//Llamar a la vista
 	//require_once("vistas/usuarios_listado.php");
 	
+	$mensaje = "Resultados de Búsqueda:";
  	$tpl = Template::getInstance();
  	$datos = array(
     'usuarios' => $usuarios,
     'buscar' => $buscar,
     'titulo' => $titulo,
     'mensaje' => $mensaje,
+    'nombre' => Session::get('usuario_nombre'),
+    'imagen' => Session::get('usuario_imagen'),
+    'usuario_perfil' => $this->getUrl("usuario","perfil"),
     );
 
 	$tpl->asignar('usuario_editar',$this->getUrl("usuario","editar"));
@@ -142,6 +147,34 @@ function invitado($params = array()){
 	$tpl->mostrar('usuarios_invitado',array());
 }
 
+function perfil($params = array()){
+	Auth::estaLogueado();
+	$titulo="Datos de Perfil";
+	$buscar="";
+	$datos_sesion = Session::get('datos_sesion');
+	$usr = new Usuario();
+	//$usr->login($datos_sesion['nick'],$datos_sesion['pass']);
+	$datos_sesion = Session::get('datos_sesion');
+
+	$tpl = Template::getInstance();
+	$datos = array(
+    'buscar' => $buscar,
+    'titulo' => $titulo,
+    'mensaje' => $mensaje,
+    'nombre' => Session::get('usuario_nombre'),
+    'imagen' => Session::get('usuario_imagen'),
+    'usuario_perfil_nombre' => Session::get('usuario_nombre_solo'),
+    'usuario_perfil_apellido' => Session::get('usuario_apellido_solo'),
+    'usuario_perfil_nick' => Session::get('usuario_nick'),
+    'usuario_perfil_edad' => Session::get('usuario_edad'),
+    'usuario_perfil_correo' => Session::get('usuario_email'),
+    'usuario_editar' => $this->getUrl("usuario","editar"),
+    'usuario_perfil' => $this->getUrl("usuario","perfil"),
+    );
+	$tpl->mostrar('usuarios_perfil',$datos);
+
+}
+
 function editar($params = array()){
 	Auth::estaLogueado();
 
@@ -177,6 +210,7 @@ function editar($params = array()){
     'nombre' => Session::get('usuario_nombre'),
     'imagen' => Session::get('usuario_imagen'),
     'usuario_editar' => $this->getUrl("usuario","editar"),
+    'usuario_perfil' => $this->getUrl("usuario","perfil"),
     );
 	$tpl->mostrar('usuarios_editar',$datos);
 }

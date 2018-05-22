@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="icon" href="{$url_base}/img/RS-Logo.png"">
 <title>{$proyecto}</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +12,7 @@
 <link rel="stylesheet" href="{$url_base}css/style.css">
 <link href="{$url_base}css/bootstrap.min.css" rel="stylesheet">
 <link href="{$url_base}css/dashboard.css" rel="stylesheet">
+</head>
 <body>
 
 <!-- Cabecera -->

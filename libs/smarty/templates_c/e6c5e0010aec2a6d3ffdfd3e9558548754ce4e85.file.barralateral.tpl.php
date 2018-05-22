@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-15 00:49:38
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 02:10:25
          compiled from "vistas\barralateral.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:175745aefbaba3b95d1-08922596%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e6c5e0010aec2a6d3ffdfd3e9558548754ce4e85' => 
     array (
       0 => 'vistas\\barralateral.tpl',
-      1 => 1526345375,
+      1 => 1526955022,
       2 => 'file',
     ),
   ),
@@ -24,6 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'nombre' => 0,
     'url_logout' => 0,
     'usuario_editar' => 0,
+    'usuario_perfil' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -51,7 +52,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ">Cerrar Sesión</a>
     <a class="w3-bar-item w3-button w3-hover-black" href="<?php echo $_smarty_tpl->tpl_vars['usuario_editar']->value;?>
 ">Editar Perfil</a>
-    <a class="w3-bar-item w3-button w3-hover-black" href="#">Eliminar Cuenta</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="<?php echo $_smarty_tpl->tpl_vars['usuario_perfil']->value;?>
+">Ver Perfil</a>
     <?php }?>
 </nav>
 

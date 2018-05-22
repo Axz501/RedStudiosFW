@@ -9,7 +9,7 @@
         <a  data-toggle="modal" data-target="#modal" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><span class="glyphicon glyphicon-user"></span> Registrarse</a>
         {/if}
         <div class="w3-dropdown-hover w3-hide-large w3-hide-medium">
-            <button class="w3-button" title="Notifications">RedStudios <i class="fa fa-caret-down"></i></button>     
+            <a href="{$url_base}" class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-hover-red" style="font-style: italic;font-size: 20px;"><i class="fa fa-home w3-margin-right"></i><b id="nombreprincipal">RedStudios</b></a>     
             <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                 {if $nombre=="Invitado"}
                 <a  data-toggle="modal" data-target="#modal2" class="w3-bar-item w3-button w3-hover-black"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a>
@@ -18,8 +18,8 @@
                 {/if}
             </div>
         </div>
-        <form id="formbuscar" method="post" action="{$url_base}usuario/buscar/">
-            <a id="botonbuscar" href="#" class="w3-bar-item w3-button w3-right w3-hover-white w3-text-white"><i class="fa fa-search"></i></a>
+        <form id="formbuscar" method="post" action="{$url_buscar}">
+            <a id="botonbuscar" class="w3-bar-item w3-button w3-right w3-hover-white w3-text-white"><i class="fa fa-search"></i></a>
             <input type="text" id="buscar" class="form-control" name="buscar" placeholder="Buscar..." value='{$buscar}'>
         </form>   
     </div>

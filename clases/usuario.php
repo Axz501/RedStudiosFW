@@ -56,19 +56,20 @@ class Usuario extends ClaseBase {
 
     public function getBusqueda($buscar){
         $usuarios=array();
-        $stmt = $this->getDB()->prepare( 
-            "SELECT * FROM usuarios 
-            WHERE nombre like ? " );
+        if ($stmt = $this->getDB()->prepare( 
+            "SELECT * FROM usuario 
+            WHERE nombre like ? or nick like ?" )){
         // Le agrego % para busque los que empiezan con la letra o terminan
-        $buscar= '%'.$buscar.'%';
-        $stmt->bind_param( "s",$buscar);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-        while ($fila=$resultado->fetch_object()) {
-            $persona= new Usuario($fila);
+            $buscar= '%'.$buscar.'%';
+            $stmt->bind_param( "ss",$buscar,$buscar);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            while ($fila=$resultado->fetch_object()) {
+                $persona= new Usuario($fila);
                 $usuarios[]=$persona;
+            }
+            return $usuarios;
         }
-        return $usuarios;
     }
 
     public function agregar($pass){
@@ -159,6 +160,7 @@ class Usuario extends ClaseBase {
                 $aux = explode(" ", $nombrecompleto);
                 Session::set('usuario_nombre', ucfirst($nombre)." ".ucfirst($aux[1]));
                 array_push($datos, "Nombre");
+                Session::set('usuario_nombre_solo', $nombre);
             }
             if(isset($_POST["apellido"]) && !empty($_POST["apellido"])){
                 $apellido = $_POST["apellido"];
@@ -168,6 +170,7 @@ class Usuario extends ClaseBase {
                 $aux = explode(" ", $nombrecompleto);
                 Session::set('usuario_nombre', ucfirst($aux[0])." ".ucfirst($apellido));
                 array_push($datos, "Apellido");
+                Session::set('usuario_apellido_solo', $apellido);
             }
             if(isset($_POST["pass"])  && !empty($_POST["pass"])){
                 $contra = $_POST["pass"];
@@ -181,6 +184,7 @@ class Usuario extends ClaseBase {
                 $query = $this->getDB()->prepare( "UPDATE usuario SET edad = '$edad' WHERE nick = '$nick'" );
                 $query->execute();
                 array_push($datos, "Edad");
+                Session::set('usuario_edad', $edad);
             }
             
             return $datos;
@@ -207,10 +211,15 @@ class Usuario extends ClaseBase {
             $passdebd = $res->contra;
             if (password_verify($pass, $passdebd)) {
                 Session::init();
+                $datos = array("nick" => $res->nick, "nombre" => ucfirst($res->nombre), "apellido" => ucfirst($res->apellido), "email" => $res->correo, "edad" => $res->edad, "pass" => $pass);
+                Session::set('datos_sesion',$datos);
                 Session::set('usuario_logueado', true);
                 Session::set('usuario_nick', $res->nick);
                 Session::set('usuario_nombre', ucfirst($res->nombre)." ".ucfirst($res->apellido));
-                Session::set('usuario_email', $res->email);
+                Session::set('usuario_nombre_solo', $res->nombre);
+                Session::set('usuario_apellido_solo', $res->apellido);
+                Session::set('usuario_edad', $res->edad);
+                Session::set('usuario_email', $res->correo);
                 if (!empty($res->imagen)){
                     Session::set('usuario_imagen', $res->imagen);
                 }

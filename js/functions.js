@@ -142,8 +142,8 @@ $('#aceptarusuario').click(function(){
 								alert("Edad Inválida");
 							}
 							else{
-								if((ni.length)<4){
-									alert("Nick Demasiado Corto");
+								if((ni.length)<4 || (contra.length)<6){
+									alert("Nick y/o Contraseña Demasiados Cortos");
 								}
 								else{
 									// var contrasenia = sha1(contra);
@@ -233,6 +233,7 @@ $("#elegirimagen").change(function(){
     }
     $("#formcrear").submit();
 });
+
 
 });
 

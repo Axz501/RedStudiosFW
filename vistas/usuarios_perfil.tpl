@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <link rel="icon" href="{$url_base}/img/RS-Logo.png"">
     <base href="{$url_base}">
-    <meta charset="utf-8">    
+    <meta charset="utf-8">
+    <link rel="icon" href="{$url_base}/img/RS-Logo.png"">
     <title>{$proyecto}</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,79 +33,50 @@
           <form class="form-horizontal" method="post" enctype="multipart/form-data">
             <fieldset>
             <div class="col-md-8">
-            
+            <div class="form-group">
+              <label class="col-md-2 control-label info-perfil" for="nombre">Nick: </label>  
+              <div class="col-md-8">
+              <h5 class="info-perfil" style="padding-top: 3px"><i>{$usuario_perfil_nick}</i></h5>
+              </div>
+            </div>
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-2 control-label" for="nombre">Nombre</label>  
+              <label class="col-md-2 control-label info-perfil" for="nombre">Nombre: </label>  
               <div class="col-md-8">
-              <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control input-md" >
-                
+              <h5 class="info-perfil" style="padding-top: 3px"><i>{$usuario_perfil_nombre}</i></h5>
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-2 control-label" for="apellido">Apellido</label>  
+              <label class="col-md-2 control-label info-perfil" for="apellido">Apellido: </label>  
               <div class="col-md-8">
-              <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control input-md" >
-                
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-2 control-label" for="apellido">Email</label>  
-              <div class="col-md-8">
-              <input id="email" name="email" type="email" placeholder="mail@gmail.com" class="form-control input-md" >
-                
-              </div>
-            </div>
-
-             <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-2 control-label" for="apellido">Contraseña</label>  
-              <div class="col-md-8">
-              <input id="pass" name="pass" type="password"  minlength="6" title="6 letras mín." class="form-control input-md" >
+              <h5 class="info-perfil" style="padding-top: 3px"><i>{$usuario_perfil_apellido}</i></h5>
                 
               </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-2 control-label" for="edad">Edad</label>  
+              <label class="col-md-2 control-label info-perfil" for="apellido">Email: </label>  
               <div class="col-md-8">
-              <input id="edad" name="edad" type="number" min="18" max="99" placeholder="0" class="form-control input-md">
+              <h5 class="info-perfil" style="padding-top: 3px"><i>{$usuario_perfil_correo}</i></h5>
                 
               </div>
             </div>
 
+            <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-2 control-label" for="edad">Quitar Imagen</label>  
-              <div class="col-md-2 checkbox">
-                <label><input type="checkbox" name="quitarimagen" id="quitarimagen"></label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-md-2 control-label" for="apellido">Contraseña Actual</label>  
+              <label class="col-md-2 control-label info-perfil" for="edad">Edad: </label>  
               <div class="col-md-8">
-              <input id="pass2" name="pass2" placeholder="CAMPO REQUERIDO" type="password"  minlength="6" title="6 caracteres mín." class="form-control input-md" required="" >
+              <h5 class="info-perfil" style="padding-top: 3px"><i>{$usuario_perfil_edad}</i></h5>
                 
               </div>
             </div>
-
-            <!-- Button -->
-            <div class="form-group">
-              <label class="col-md-8 control-label" for="guardar"></label>
-              <div class="col-md-2">
-                <button id="guardar" name="guardar" class="btn btn-success">Enviar Datos</button>
-              </div>
-            </div>
-
-            
+         
             </div>
             <div class="col-md-4">
-              <label for="imagen">Imagen de Perfil:</label>
+              <label for="imagen" class="info-perfil">Imagen de Perfil:</label>
               {if $imagen==""}
               <img src="{$url_base}img/iconoUsuario.jpg" class="img-responsive img-circle" id="imageneditar" ><br>
               {/if}
@@ -114,9 +84,7 @@
               <img src="{$imagen}" class="img-responsive img-circle" id="imageneditar" ><br>
               {/if}
               <!-- <form target="iframe" action="{$url_base}mediador.php" id="formcrear" enctype="multipart/form-data" method="post">  -->
-                <input type="file" name="elegirimagen" id="elegirimagen" value="Img" accept=".jpg*,.png*"/>
               <!-- </form> -->
-              <iframe style="display:none" id="iframe" name="iframe"></iframe><br>
             </div>
             </fieldset>
           </form>

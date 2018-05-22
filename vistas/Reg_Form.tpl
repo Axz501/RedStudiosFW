@@ -11,24 +11,25 @@
 			<div class="modal-body" style="background-color:white;">
 				<div class="container">
 					<div class="col-md-5">
+						<form class="form-signin" >
 						<div class="form-group" >
 							<label for="cedula">Nick:</label>
-							<input name="Nick" type="text" class="form-control campoinput" id="Nick" style="width: 70%" required >
+							<input name="Nick" type="text" class="form-control campoinput" id="Nick" style="width: 70%" required="" >
 							<p id="avisonick" class="redmessage">Nick Inválido</p>
 						</div>
 						<div class="form-group" >
 							<label for="username">Nombre:</label>
-							<input name="username" type="text" class="form-control campoinput" id="username" style="width: 70%" required>
+							<input name="username" type="text" class="form-control campoinput" id="username" style="width: 70%" required="">
 							<p id="avisonombre" class="redmessage">Nombre Inválido</p>
 						</div>
 						<div class="form-group" >
 							<label for="surname">Apellido:</label>
-							<input name="surname" type="text" class="form-control campoinput" id="surname" style="width: 70%" required >
+							<input name="surname" type="text" class="form-control campoinput" id="surname" style="width: 70%" required="" >
 							<p id="avisoapellido" class="redmessage">Apellido Inválido</p>
 						</div>
 						<div class="form-group" >
 							<label for="mail">Correo Electrónico:</label>
-							<input name="mail" type="email" class="form-control campoinput" id="mail" style="width: 70%" >
+							<input name="mail" type="email" class="form-control campoinput" id="mail" required="" style="width: 70%" >
 							<p id="avisocorreo" class="redmessage">Correo Inválido</p>
 						</div>
 						<div class="form-group" >
@@ -46,6 +47,7 @@
 							<input name="password2" type="password" class="form-control campoinput" id="password2" style="width: 70%" required >
 							<p id="avisocontra2" class="redmessage">Las Contraseñas no coinciden</p>
 						</div>
+						</form>
 						
 					</div>
 					<div class="col-md-3">

@@ -22,9 +22,12 @@ document.getElementById("botonbuscar").onclick = function() {
 
 $(document).ready(function(){
 
-var mensaje = document.getElementById("mensaje");
-if (mensaje.innerHTML.includes("Nuevo Email") || mensaje.innerHTML.includes("Contraseña actual")){
-    mensaje.setAttribute("class","alert alert-danger");
+var str = window.location.href;
+if (str.includes("usuario/editar")){
+    var mensaje = document.getElementById("mensaje");
+    if (mensaje.innerHTML.includes("Nuevo Email") || mensaje.innerHTML.includes("Contraseña actual")){
+        mensaje.setAttribute("class","alert alert-danger");
+    }
 }
 $('#quitarimagen').click(function(){
     var quitarimagen = document.getElementById('quitarimagen');

@@ -78,6 +78,10 @@ body{
 }
 #imageneditar{
   width: 50vw;
+  border:ridge;
 }
-
+.info-perfil{
+  font-size: 25px;
+  margin-right: 25px;
+}
 

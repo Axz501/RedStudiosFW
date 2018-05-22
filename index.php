@@ -10,6 +10,7 @@ $controlIndex=new ControladorIndex();
 $tpl = Template::getInstance();
 $tpl->asignar('url_base',"http://localhost/RedStudiosFW/");
 $tpl->asignar('url_logout',$controlIndex->getUrl("usuario","logout"));
+$tpl->asignar('url_buscar',$controlIndex->getUrl("usuario","buscar"));
 $tpl->asignar('proyecto'," RedStudios");
 
 //Cargamos controladores y acciones
@@ -30,9 +31,9 @@ if(isset($_GET['url'])){
 }
 
 $controllerObj=$controlIndex->cargarControlador($controller);
- // echo $controller;
- // echo $action;
- // print_r($params);
+  // echo $controller;
+  // echo $action;
+  // print_r($params);
 $controlIndex->ejecutarAccion($controllerObj,$action,$params);
 
 ?>
