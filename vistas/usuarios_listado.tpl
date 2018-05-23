@@ -78,6 +78,8 @@
     <script language="JavaScript" type="text/javascript" src="{$url_base}js/bootstrap.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="{$url_base}js/functions.js"></script>
     <script language="JavaScript" type="text/javascript" src="{$url_base}js/barralateral.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{$url_base}js/headerimage.js"></script>
+
 
   </body>
 </html>

@@ -21,6 +21,29 @@
         <form id="formbuscar" method="post" action="{$url_buscar}">
             <a id="botonbuscar" class="w3-bar-item w3-button w3-right w3-hover-white w3-text-white"><i class="fa fa-search"></i></a>
             <input type="text" id="buscar" class="form-control" name="buscar" placeholder="Buscar..." value='{$buscar}'>
-        </form>   
+        </form>
+           
     </div>
     </div>
+    <div class="mySlides w3-display-container w3-center" style="display: block; border-bottom-style: outset;">
+        <img src="{$url_base}/img/la2.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small subtitulos-imagen">
+          <h2>Documentos y Pruebas</h2>
+          <p><b>Consulta el material compartido por nuestra comunidad para tomar pruebas y estudiar lo que necesites</b></p>   
+      </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center" style="display: block; border-bottom-style:outset;">
+        <img src="{$url_base}/img/la3.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small subtitulos-imagen">
+          <h2>Integrate</h2>
+          <p><b>Socializa con estudiantes de otras partes del mundo!</b></p>   
+      </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center" style="display: block; border-bottom-style: outset;">
+        <img src="{$url_base}/img/la1.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small subtitulos-imagen">
+          <h2>Crea Grupos de Estudio</h2>
+          <p><b>Se parte de nuestra comunidad consultando y ayudando a otros estudiantes</b></p>   
+      </div>
+    </div>
+        

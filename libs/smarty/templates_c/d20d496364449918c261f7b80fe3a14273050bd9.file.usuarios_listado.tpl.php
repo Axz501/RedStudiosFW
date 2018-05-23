@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 19:43:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 23:59:47
          compiled from "vistas\usuarios_listado.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:257045aee57510ec398-09507142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd20d496364449918c261f7b80fe3a14273050bd9' => 
     array (
       0 => 'vistas\\usuarios_listado.tpl',
-      1 => 1527018211,
+      1 => 1527033578,
       2 => 'file',
     ),
   ),
@@ -146,6 +146,11 @@ js/functions.js"><?php echo '</script'; ?>
  language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 js/barralateral.js"><?php echo '</script'; ?>
 >
+    <?php echo '<script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/headerimage.js"><?php echo '</script'; ?>
+>
+
 
   </body>
 </html>

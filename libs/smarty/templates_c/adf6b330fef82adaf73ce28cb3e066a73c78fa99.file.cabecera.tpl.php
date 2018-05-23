@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 19:05:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-23 00:35:14
          compiled from "vistas\cabecera.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:54415aefba219ec5d7-41400719%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'adf6b330fef82adaf73ce28cb3e066a73c78fa99' => 
     array (
       0 => 'vistas\\cabecera.tpl',
-      1 => 1527015938,
+      1 => 1527035713,
       2 => 'file',
     ),
   ),
@@ -53,6 +53,32 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <a id="botonbuscar" class="w3-bar-item w3-button w3-right w3-hover-white w3-text-white"><i class="fa fa-search"></i></a>
             <input type="text" id="buscar" class="form-control" name="buscar" placeholder="Buscar..." value='<?php echo $_smarty_tpl->tpl_vars['buscar']->value;?>
 '>
-        </form>   
+        </form>
+           
     </div>
-    </div><?php }} ?>
+    </div>
+    <div class="mySlides w3-display-container w3-center" style="display: block; border-bottom-style: outset;">
+        <img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+/img/la2.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small subtitulos-imagen">
+          <h2>Documentos y Pruebas</h2>
+          <p><b>Consulta el material compartido por nuestra comunidad para tomar pruebas y estudiar lo que necesites</b></p>   
+      </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center" style="display: block; border-bottom-style:outset;">
+        <img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+/img/la3.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small subtitulos-imagen">
+          <h2>Integrate</h2>
+          <p><b>Socializa con estudiantes de otras partes del mundo!</b></p>   
+      </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center" style="display: block; border-bottom-style: outset;">
+        <img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+/img/la1.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small subtitulos-imagen">
+          <h2>Crea Grupos de Estudio</h2>
+          <p><b>Se parte de nuestra comunidad consultando y ayudando a otros estudiantes</b></p>   
+      </div>
+    </div>
+        <?php }} ?>

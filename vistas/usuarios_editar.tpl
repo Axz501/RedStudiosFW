@@ -127,10 +127,12 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="{$url_base}js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script type="text/javascript" src="{$url_base}js/barralateral.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{$url_base}js/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{$url_base}js/bootstrap.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{$url_base}js/functions.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{$url_base}js/barralateral.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{$url_base}js/headerimage.js"></script>
+    
   </body>
 </html>
 

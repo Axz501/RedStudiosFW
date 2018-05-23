@@ -151,10 +151,10 @@ function perfil($params = array()){
 	Auth::estaLogueado();
 	$titulo="Datos de Perfil";
 	$buscar="";
-	$datos_sesion = Session::get('datos_sesion');
+	//$datos_sesion = Session::get('datos_sesion');
 	$usr = new Usuario();
 	//$usr->login($datos_sesion['nick'],$datos_sesion['pass']);
-	$datos_sesion = Session::get('datos_sesion');
+	//$datos_sesion = Session::get('datos_sesion');
 
 	$tpl = Template::getInstance();
 	$datos = array(

@@ -84,4 +84,17 @@ body{
   font-size: 25px;
   margin-right: 25px;
 }
-
+.mySlides{
+  margin-top: -5px;
+}
+@media screen and (min-width: 992px) {
+.mySlides{
+  margin-left: 250px;
+}}
+.subtitulos-imagen{
+    color:white;
+    text-shadow: rgb(0, 0, 0) -1px -2px 1px, 
+    rgba(0, 0, 0, 0.8) 3.5px 2px 1px, 
+    -2px 0px black, 2px 0 black, 
+    0px -2px black, 0px 2px black;
+}

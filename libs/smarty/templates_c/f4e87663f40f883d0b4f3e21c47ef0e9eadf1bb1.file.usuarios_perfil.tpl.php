@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 03:11:50
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-23 00:13:01
          compiled from "vistas\usuarios_perfil.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:281915b037c13f23515-01013598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f4e87663f40f883d0b4f3e21c47ef0e9eadf1bb1' => 
     array (
       0 => 'vistas\\usuarios_perfil.tpl',
-      1 => 1526958658,
+      1 => 1527034379,
       2 => 'file',
     ),
   ),
@@ -146,16 +146,24 @@ mediador.php" id="formcrear" enctype="multipart/form-data" method="post">  -->
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <?php echo '<script'; ?>
- src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><?php echo '</script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/jquery.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 js/bootstrap.min.js"><?php echo '</script'; ?>
 >
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <?php echo '<script'; ?>
- type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/functions.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 js/barralateral.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ language="JavaScript" type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+js/headerimage.js"><?php echo '</script'; ?>
 >
   </body>
 </html>
