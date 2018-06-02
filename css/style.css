@@ -48,7 +48,7 @@ body{
   background-image: url(/RedStudiosFW/img/fondo.jpg);
 }
 .w3-top{
-  box-shadow: 0px 5px 10px rgb(100, 100, 100);
+  box-shadow: 0px 5px 10px rgba(255, 0, 0, 0.89);
 }
 .redmessage{
     display:none;
@@ -65,17 +65,26 @@ body{
     width: 50%;
   }
 }
+.tabla-usuarios{
+  box-shadow: rgba(0, 0, 0, 0.2) -1px -2px 1px, 
+    rgba(0, 0, 0, 0.2) 3.5px 2px 1px, 
+    -2px 0px rgba(0, 0, 0, 0.2), 2px 0 rgba(0, 0, 0, 0.2), 
+    0px -2px rgba(0, 0, 0, 0.2), 0px 2px rgba(0, 0, 0, 0.2);
+}
+
 #nombreprincipal{
   text-shadow: rgb(255, 12, 12) -1px -2px 1px, 
   rgba(234, 16, 16, 0.8) 3.5px 2px 1px, 
   -2px 0px #e61111, 2px 0 #f91010, 
   0px -2px #f50d0d, 0px 2px #fb0f0fa6;
+  font-style: italic;
+  font-size: 20px;"
 }
-@media screen and (min-width: 992px) {
+/*@media screen and (min-width: 992px) {
 #contenidoprincipal{
   margin-left: 250px;
 }
-}
+}*/
 #imageneditar{
   width: 50vw;
   border:ridge;
@@ -87,14 +96,53 @@ body{
 .mySlides{
   margin-top: -5px;
 }
-@media screen and (min-width: 992px) {
+/*@media screen and (min-width: 992px) {
 .mySlides{
   margin-left: 250px;
-}}
-.subtitulos-imagen{
+}}*/
+.subtitulos-imagen, .titulo-imagen{
     color:white;
     text-shadow: rgb(0, 0, 0) -1px -2px 1px, 
     rgba(0, 0, 0, 0.8) 3.5px 2px 1px, 
     -2px 0px black, 2px 0 black, 
     0px -2px black, 0px 2px black;
+}
+@media screen and (max-width: 600px){
+  .subtitulos-imagen{
+    font-size: 10px;
+    width: 100%
+  }
+  .titulo-imagen{
+    font-size: 25px;
+    width: 100%
+  }
+}
+@media screen and (min-width: 600px){
+  .subtitulos-imagen{
+    font-size: 20px;
+    width: 100%
+  }
+  .titulo-imagen{
+    font-size: 40px;
+    width: 100%
+  }
+}
+@media screen and (max-width: 375px){
+  #botonbuscar{
+    display: none;
+  }
+}
+.botonhome{
+  text-shadow: rgb(255, 12, 12) -1px -2px 1px, 
+  rgba(234, 16, 16, 0.8) 3.5px 2px 1px, 
+  -2px 0px #e61111, 2px 0 #f91010, 
+  0px -2px #f50d0d, 0px 2px #fb0f0fa6;
+}
+@media screen and (max-width: 600px){
+.imagencabecera{
+  height: 150px;
+}
+}
+.boton-perfil{
+  background-color: #00000000;
 }

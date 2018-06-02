@@ -47,25 +47,37 @@ $('#loginform').submit(function(e){
 	var pass = document.getElementById("loginpass").value;
 	if (correo!=="" && pass!==""){
 		//var contrasenia = sha1(pass);
+		var url = 'http://localhost/RedStudiosFW/usuario/login/'+correo;
 		$.ajax({
         type: 'POST', //tipo de request
-        url: '/RedStudiosFW/mediador.php',
-        dataType: 'text', // tipo de dato esperado en la respuesta(text, json, etc.)
+        url: url,
         data: {// Parametros que se pasan en el request
-            logincor : correo,
 			loginpass : pass
         },
-        success: function (data) { //en el success ponemos lo que queremos hacer cuando obtenemos la respuesta
-				//alert(data);
-				if(data==="si"){
-					alert("Sesión Iniciada");
-					location.reload(true);				
-				}
-				else{
-					alert ("Credenciales Inválidas");
-					document.getElementById("loginaviso").style.display = "block";
-				}
+        success: function (data){
+        	if(data.status=="si"){
+				window.location.assign("/RedStudiosFW/usuario/listado");				
 			}
+			else{
+				document.getElementById("loginaviso").style.display = "block";
+				document.getElementById("loginaviso").innerHTML = "Credenciales Inválidas";
+			}
+        }
+        //url: 'http://localhost/RedStudiosFW/usuario/invitado',
+        // dataType: 'text', // tipo de dato esperado en la respuesta(text, json, etc.)
+   //      
+
+   //      success: function (data) { //en el success ponemos lo que queremos hacer cuando obtenemos la respuesta
+			// 	//alert(data);
+			// 	if(data==="si"){
+			// 		alert("Sesión Iniciada");
+			// 		location.reload(true);				
+			// 	}
+			// 	else{
+			// 		alert ("Credenciales Inválidas");
+			// 		document.getElementById("loginaviso").style.display = "block";
+			// 	}
+			// }
 		});
 	}
 	if (correo==="" || pass===""){
@@ -153,27 +165,21 @@ $('#aceptarusuario').click(function(){
 										document.getElementById("avisocontra2").style.display = "block";
 										}
 									else{
-										
+										var url = 'http://localhost/RedStudiosFW/usuario/nuevo/'+nombre.value+'/'+apellido.value+'/'+ni+'/'+edad.value+'/'+correo+'/'+img
 										$.ajax({
 										type: 'POST', //tipo de request
-										url: '/RedStudiosFW/mediador.php',
-										dataType: 'text', // tipo de dato esperado en la respuesta(text, json, etc.)
+										url: url,
+										//dataType: 'text', // tipo de dato esperado en la respuesta(text, json, etc.)
 										data: {// Parametros que se pasan en el request
-											nombre: nombre.value,
-											apellido: apellido.value,
-											nick: ni,
-											edad: edad.value,
-											pass: contra,
-											correo: correo,
-											imagen: img
+											pass: contra
 										},
 										success: function (data) { //en el success ponemos lo que queremos hacer cuando obtenemos la respuesta
-											var x = data.split(" ");
-											if (x[0]==="no")
+											if (data.status=="no"){
 												alert("Nick y/o Correo en uso");
-											else{
+											}
+											if (data.status==="si"){
 												alert("Registro Completo");
-												window.location.replace("Ahora Puedes Iniciar Sesión con tu Nuevo Usuario ".concat(ni));
+												window.location.reload(true);
 											}
 											
 										}

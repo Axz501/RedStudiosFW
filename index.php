@@ -31,7 +31,7 @@ if(isset($_GET['url'])){
 }
 
 $controllerObj=$controlIndex->cargarControlador($controller);
-  // echo $controller;
+  //  echo Session::get('usuario_imagen');
   // echo $action;
   // print_r($params);
 $controlIndex->ejecutarAccion($controllerObj,$action,$params);

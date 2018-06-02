@@ -14,7 +14,7 @@ class ControladorUsuario extends ControladorIndex {
 
 	$buscar="";
 	$titulo="Listado";
-	$mensaje="";
+	$mensaje="Bienvenido a RedStudios, has iniciado sesión como " . Session::get('usuario_nick') . ".";
 	if(!empty($params)){
 		if($params[0]=="borrar"){
 			$usuario=new Usuario();
@@ -56,6 +56,7 @@ class ControladorUsuario extends ControladorIndex {
 	
 	//Llamar a la vista
 	//Session::init();
+
  	$tpl = Template::getInstance();
  	$datos = array(
     'usuarios' => $usuarios,
@@ -113,14 +114,26 @@ function buscar($params=array()){
 
 function nuevo($datos){
 	$mensaje="Bienvenido ".$datos[0]." ".$datos[1];
-	//if(isset($_POST["nombre"])){
-		$usr= new Usuario();
-		$usr->setNombre($datos[0]);
-		$usr->setApellido($datos[1]);
-		$usr->setNick($datos[2]);
-		$usr->setEdad($datos[3]);
-		$usr->setEmail($datos[5]);
-		$usr->agregar($datos[4]);
+	$usr = new Usuario();
+	$ok = $usr->controlnickcorreo($datos[2],$datos[4]);
+	if ($ok['status']=="si"){
+		if(isset($_POST["pass"])){
+			$usr= new Usuario();
+			$usr->setNombre($datos[0]);
+			$usr->setApellido($datos[1]);
+			$usr->setNick($datos[2]);
+			$usr->setEdad($datos[3]);
+			$usr->setEmail($datos[4]);
+
+			$usr->agregar($_POST["pass"]);
+			Session::init();
+			Session::set('nick',$datos[2]);
+			echo json_encode($ok);
+		}
+	} else {
+		echo json_encode($ok);
+	}
+	
 		// if($usr->agregar($datos[4])){
 		// 	$this->redirect("usuario","invitado");
 		// 	exit;
@@ -137,12 +150,17 @@ function nuevo($datos){
 
 function invitado($params = array()){
 	Auth::ingresar();
+	echo $params[0];
+	if (Session::get('nick')!==null)
+		$mensaje = "Ahora Puedes Iniciar Sesión con tu Nuevo Usuario ".Session::get('nick');
+	else
+		$mensaje = "";
 
 	$tpl = Template::getInstance();
 	$tpl->asignar('titulo',"Nuevo Usuario");
 	$tpl->asignar('loginUrl',$loginUrl);
 	$tpl->asignar('buscar',"");
-	$tpl->asignar('mensaje',$params[0]);
+	$tpl->asignar('mensaje',$mensaje);
 	$tpl->asignar('nombre',"Invitado");
 	$tpl->mostrar('usuarios_invitado',array());
 }
@@ -209,6 +227,10 @@ function editar($params = array()){
     'mensaje' => $mensaje,
     'nombre' => Session::get('usuario_nombre'),
     'imagen' => Session::get('usuario_imagen'),
+    'usuario_perfil_nombre' => Session::get('usuario_nombre_solo'),
+    'usuario_perfil_apellido' => Session::get('usuario_apellido_solo'),
+    'usuario_perfil_edad' => Session::get('usuario_edad'),
+    'usuario_perfil_correo' => Session::get('usuario_email'),
     'usuario_editar' => $this->getUrl("usuario","editar"),
     'usuario_perfil' => $this->getUrl("usuario","perfil"),
     );
@@ -220,28 +242,21 @@ function login($datos){
 	$mensaje="";
 	session_start();
 	
-	// if(isset($_POST["email"])){
+	if(isset($_POST["loginpass"])){
 		$usr= new Usuario();
 		
 		$email=$datos[0];
-		$pass=$datos[1];
+		$pass=$_POST["loginpass"];
 		$mensaje = $usr->login($email,$pass);
-		return $mensaje;
-		//if($usr->login($email,$pass)){
-		// 	$this->redirect("usuario","listado");
-		// 	exit;
-		// }else{
-		// 	$mensaje="Error! No se pudo agregar el usuario";
-		// }
-
-		
+		echo json_encode($mensaje);
+	}
 	// }
 	// $tpl = Template::getInstance();
 	// $tpl->asignar('titulo',"Nuevo Usuario");
 	// $tpl->asignar('loginUrl',$loginUrl);
 	// $tpl->asignar('buscar',"");
 	// $tpl->asignar('mensaje',$mensaje);
-	// $tpl->mostrar('usuarios_login',array());
+	// $tpl->mostrar('usuarios_listado',array());
 
 }
 function logout(){
@@ -259,7 +274,7 @@ function favoritos(){
 function controlnickcorreo($nick,$correo){
 	$usuario = new Usuario();
 	$ok = $usuario->controlnickcorreo($nick,$correo);
-	return $ok;
+	echo json_encode($ok);
 }
 
 }

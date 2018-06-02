@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 23:59:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-30 05:39:41
          compiled from "vistas\usuarios_listado.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:257045aee57510ec398-09507142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd20d496364449918c261f7b80fe3a14273050bd9' => 
     array (
       0 => 'vistas\\usuarios_listado.tpl',
-      1 => 1527033578,
+      1 => 1527658780,
       2 => 'file',
     ),
   ),
@@ -19,13 +19,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5aee57515d61b1_49810936',
   'variables' => 
   array (
-    'url_base' => 0,
-    'proyecto' => 0,
+    'mensaje' => 0,
     'titulo' => 0,
     'usuario_nuevo' => 0,
-    'mensaje' => 0,
     'usuarios' => 0,
     'persona' => 0,
+    'url_base' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -33,28 +32,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-/img/RS-Logo.png"">
-    <base href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-">
-    <meta charset="utf-8">
-    
-    <title><?php echo $_smarty_tpl->tpl_vars['proyecto']->value;?>
-</title>
+    <?php echo $_smarty_tpl->getSubTemplate ("headerinfo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-css/style.css">
-    <link href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-css/dashboard.css" rel="stylesheet">
-    
     
   </head>
 
@@ -66,20 +45,21 @@ css/dashboard.css" rel="stylesheet">
     
     <div class="container-fluid" id="contenidoprincipal">
       <div class="row">
+        <?php if ($_smarty_tpl->tpl_vars['mensaje']->value!='') {?>
+            <div class="alert alert-success" role="alert" style="font-size: 22px"><?php echo $_smarty_tpl->tpl_vars['mensaje']->value;?>
+</div>
+          <?php }?>
 
         <div class="col-md-12 main">
-          <h1 class="page-header">Usuarios</h1>
-          <h2 class="sub-header"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+          <h1 class="page-header w3-border-bottom w3-border-black">Usuarios</h1>
+          <h2 class="sub-header "><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
  
             <!-- <button id="agregar" name="agregar" class="btn btn-success pull-right" onClick="window.location='<?php echo $_smarty_tpl->tpl_vars['usuario_nuevo']->value;?>
 '">Agregar</button> -->
           </h2>
-          <?php if ($_smarty_tpl->tpl_vars['mensaje']->value!='') {?>
-            <div class="alert alert-success" role="alert" style="font-size: 22px"><?php echo $_smarty_tpl->tpl_vars['mensaje']->value;?>
-</div>
-          <?php }?>
-          <div class="table-responsive">
-            <table class="table table-striped" style="font-size: 22px">
+          
+          <div class="table-responsive tabla-usuarios">
+            <table class="table " style="background-color: white">
               <thead class="w3-red">
                 <tr>
                   <th>Nombre</th>
@@ -87,6 +67,7 @@ css/dashboard.css" rel="stylesheet">
                   <th>Edad</th>
                   <th>Nick</th>
                   <th>Email</th>
+                  <th>Imagen</th>
                   <!-- <th>Acciones</th> -->
                 </tr>
               </thead>
@@ -107,6 +88,14 @@ $_smarty_tpl->tpl_vars['persona']->_loop = true;
 </td>
                     <td><?php echo $_smarty_tpl->tpl_vars['persona']->value->getEmail();?>
 </td>
+                    <?php if ($_smarty_tpl->tpl_vars['persona']->value->getImagen()=='') {?>
+                      <td><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+img/RS-Logo.png" style="width:200px;height:200px;"></td>
+                    <?php } elseif ($_smarty_tpl->tpl_vars['persona']->value->getImagen()!='') {?>
+                      <td><img src="<?php echo $_smarty_tpl->tpl_vars['persona']->value->getImagen();?>
+" style="width:200px;height:200px;"></td>
+                    <?php }?>
+
                     <!-- <td>
                       <input type="button" value="Borrar" class="btn btn-danger" onClick="window.location='<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 usuario/listado/borrar/<?php echo $_smarty_tpl->tpl_vars['persona']->value->getId();?>

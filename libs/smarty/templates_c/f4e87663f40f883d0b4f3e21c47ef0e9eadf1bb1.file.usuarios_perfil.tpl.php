@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-23 00:13:01
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-30 02:19:18
          compiled from "vistas\usuarios_perfil.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:281915b037c13f23515-01013598%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f4e87663f40f883d0b4f3e21c47ef0e9eadf1bb1' => 
     array (
       0 => 'vistas\\usuarios_perfil.tpl',
-      1 => 1527034379,
+      1 => 1527646753,
       2 => 'file',
     ),
   ),
@@ -35,16 +35,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_5b037c141254e4_66132308')) {function content_5b037c141254e4_66132308($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+    <?php echo $_smarty_tpl->getSubTemplate ("headerinfo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+    <!-- <base href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 ">
     <meta charset="utf-8">
     <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 /img/RS-Logo.png"">
     <title><?php echo $_smarty_tpl->tpl_vars['proyecto']->value;?>
 </title>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -52,7 +52,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-css/style.css">
+css/style.css"> -->
 
   </head>
   <body>

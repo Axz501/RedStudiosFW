@@ -2,20 +2,19 @@
 <html lang="en">
   <head>
 
-    <link rel="icon" href="{$url_base}/img/RS-Logo.png"">
+    {include file="headerinfo.tpl"}
+    <!-- <link rel="icon" href="{$url_base}/img/RS-Logo.png"">
     <base href="{$url_base}">
     <meta charset="utf-8">    
     <title>{$proyecto}</title>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$url_base}css/style.css">
+    <link rel="stylesheet" href="{$url_base}css/style.css"> -->
 
   </head>
   <body>
@@ -39,7 +38,7 @@
             <div class="form-group">
               <label class="col-md-2 control-label" for="nombre">Nombre</label>  
               <div class="col-md-8">
-              <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control input-md" >
+              <input id="nombre" name="nombre" value="{$usuario_perfil_nombre}" type="text" placeholder="Nombre" class="form-control input-md" >
                 
               </div>
             </div>
@@ -48,7 +47,7 @@
             <div class="form-group">
               <label class="col-md-2 control-label" for="apellido">Apellido</label>  
               <div class="col-md-8">
-              <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control input-md" >
+              <input id="apellido" name="apellido" value="{$usuario_perfil_apellido}" type="text" placeholder="Apellido" class="form-control input-md" >
                 
               </div>
             </div>
@@ -57,7 +56,7 @@
             <div class="form-group">
               <label class="col-md-2 control-label" for="apellido">Email</label>  
               <div class="col-md-8">
-              <input id="email" name="email" type="email" placeholder="mail@gmail.com" class="form-control input-md" >
+              <input id="email" name="email" type="email" value="{$usuario_perfil_correo}" placeholder="mail@gmail.com" class="form-control input-md" >
                 
               </div>
             </div>
@@ -75,7 +74,7 @@
             <div class="form-group">
               <label class="col-md-2 control-label" for="edad">Edad</label>  
               <div class="col-md-8">
-              <input id="edad" name="edad" type="number" min="18" max="99" placeholder="0" class="form-control input-md">
+              <input id="edad" name="edad" type="number" min="18" max="99" value="{$usuario_perfil_edad}" placeholder="0" class="form-control input-md">
                 
               </div>
             </div>

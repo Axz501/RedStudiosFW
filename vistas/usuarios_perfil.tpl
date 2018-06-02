@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="{$url_base}">
+    {include file="headerinfo.tpl"}
+    <!-- <base href="{$url_base}">
     <meta charset="utf-8">
     <link rel="icon" href="{$url_base}/img/RS-Logo.png"">
     <title>{$proyecto}</title>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$url_base}css/style.css">
+    <link rel="stylesheet" href="{$url_base}css/style.css"> -->
 
   </head>
   <body>

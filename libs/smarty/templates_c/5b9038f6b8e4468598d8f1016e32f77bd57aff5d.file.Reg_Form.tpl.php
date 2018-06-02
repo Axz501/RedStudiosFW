@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-22 21:29:25
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-29 23:52:48
          compiled from "vistas\Reg_Form.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:274185aefe49cb01c87-04436952%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5b9038f6b8e4468598d8f1016e32f77bd57aff5d' => 
     array (
       0 => 'vistas\\Reg_Form.tpl',
-      1 => 1527024392,
+      1 => 1527637966,
       2 => 'file',
     ),
   ),
@@ -28,10 +28,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class="modal-dialog modal-lg" >
 
 		<!-- Modal content-->
-		<div class="modal-content" style="background-color:white;width:100%;margin-left:auto;margin-right:auto;">
+		<div class="modal-content" style="background-color:red;width:100%;margin-left:auto;margin-right:auto;">
 			<div class="modal-header">
 				<button id="cerrarmodal1" type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title" style="font-weight:bold;color:black;font-size:30px">Nuevo Usuario</h4>
+				<h4 class="modal-title" style="font-weight:bold;color:white;font-size:30px">Nuevo Usuario</h4>
 			</div>
 			<div class="modal-body" style="background-color:white;">
 				<div class="container">

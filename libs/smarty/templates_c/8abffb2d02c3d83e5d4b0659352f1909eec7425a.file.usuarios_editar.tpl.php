@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-23 00:20:04
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2018-05-30 05:01:31
          compiled from "vistas\usuarios_editar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:59895afa294420a755-26319698%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8abffb2d02c3d83e5d4b0659352f1909eec7425a' => 
     array (
       0 => 'vistas\\usuarios_editar.tpl',
-      1 => 1527034369,
+      1 => 1527656489,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'proyecto' => 0,
     'titulo' => 0,
     'mensaje' => 0,
+    'usuario_perfil_nombre' => 0,
+    'usuario_perfil_apellido' => 0,
+    'usuario_perfil_correo' => 0,
+    'usuario_perfil_edad' => 0,
     'imagen' => 0,
   ),
   'has_nocache_code' => false,
@@ -31,16 +35,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html lang="en">
   <head>
 
-    <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+    <?php echo $_smarty_tpl->getSubTemplate ("headerinfo.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+    <!-- <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 /img/RS-Logo.png"">
     <base href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 ">
     <meta charset="utf-8">    
     <title><?php echo $_smarty_tpl->tpl_vars['proyecto']->value;?>
 </title>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -48,7 +52,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-css/style.css">
+css/style.css"> -->
 
   </head>
   <body>
@@ -76,7 +80,8 @@ css/style.css">
             <div class="form-group">
               <label class="col-md-2 control-label" for="nombre">Nombre</label>  
               <div class="col-md-8">
-              <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control input-md" >
+              <input id="nombre" name="nombre" value="<?php echo $_smarty_tpl->tpl_vars['usuario_perfil_nombre']->value;?>
+" type="text" placeholder="Nombre" class="form-control input-md" >
                 
               </div>
             </div>
@@ -85,7 +90,8 @@ css/style.css">
             <div class="form-group">
               <label class="col-md-2 control-label" for="apellido">Apellido</label>  
               <div class="col-md-8">
-              <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control input-md" >
+              <input id="apellido" name="apellido" value="<?php echo $_smarty_tpl->tpl_vars['usuario_perfil_apellido']->value;?>
+" type="text" placeholder="Apellido" class="form-control input-md" >
                 
               </div>
             </div>
@@ -94,7 +100,8 @@ css/style.css">
             <div class="form-group">
               <label class="col-md-2 control-label" for="apellido">Email</label>  
               <div class="col-md-8">
-              <input id="email" name="email" type="email" placeholder="mail@gmail.com" class="form-control input-md" >
+              <input id="email" name="email" type="email" value="<?php echo $_smarty_tpl->tpl_vars['usuario_perfil_correo']->value;?>
+" placeholder="mail@gmail.com" class="form-control input-md" >
                 
               </div>
             </div>
@@ -112,7 +119,8 @@ css/style.css">
             <div class="form-group">
               <label class="col-md-2 control-label" for="edad">Edad</label>  
               <div class="col-md-8">
-              <input id="edad" name="edad" type="number" min="18" max="99" placeholder="0" class="form-control input-md">
+              <input id="edad" name="edad" type="number" min="18" max="99" value="<?php echo $_smarty_tpl->tpl_vars['usuario_perfil_edad']->value;?>
+" placeholder="0" class="form-control input-md">
                 
               </div>
             </div>

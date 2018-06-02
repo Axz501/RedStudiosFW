@@ -27,12 +27,11 @@ class ClaseBase{
             or die ("Fallo en la consulta");
 
         while ( $fila = $resultado->fetch_object() )
-        {
-            
+        { 
             $objeto= new $this->modelo($fila);
             $resultados[]=$objeto;
         } 
-     return $resultados;   
+        return $resultados;   
     }
 
     public function obtenerPorId($id){

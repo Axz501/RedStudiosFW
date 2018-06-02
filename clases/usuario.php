@@ -5,6 +5,7 @@ class Usuario extends ClaseBase {
     public $nick = '';
 	public $edad = 0;
     public $correo='';
+    public $imagen='';
     //Contructor que recibe un array
 	public function __construct($obj=NULL) {
         //$this->db=DB::conexion();
@@ -18,6 +19,9 @@ class Usuario extends ClaseBase {
 
     }
    
+   public function getImagen(){
+        return $this->imagen;
+   }
     public function getid() {
         return $this->id;
     }
@@ -36,6 +40,9 @@ class Usuario extends ClaseBase {
 
     public function setNombre($nombre){
         $this->nombre=$nombre;
+    }
+    public function setImagen($imagen){
+        $this->imagen = $imagen;
     }
     public function getEmail() {
         return $this->correo;
@@ -204,8 +211,12 @@ class Usuario extends ClaseBase {
             $stmt->bind_param("ss",$email,$email);
             $stmt->execute();
             $resultado = $stmt->get_result();
+            header('Content-type: application/json');
+
             if($resultado->num_rows<1){
-                return "no hay tuplas";
+                $response['status'] = 'no hay tuplas';
+                //echo json_encode($response);
+                return $response;
             }    
             $res=$resultado->fetch_object();
             $passdebd = $res->contra;
@@ -223,11 +234,15 @@ class Usuario extends ClaseBase {
                 if (!empty($res->imagen)){
                     Session::set('usuario_imagen', $res->imagen);
                 }
-                return "si";
+                $response['status'] = 'si';
+                //echo json_encode($response);
+                return $response;
             }
         else{
             //$error = $mysqli->errno.' '.$mysqli->error;
-            return "contra no";
+            $response['status'] = 'contra no';
+                //echo json_encode($response);
+                return $response;
             }
         }
     }
@@ -246,7 +261,9 @@ class Usuario extends ClaseBase {
             $stmt->execute();
             $resultado = $stmt->get_result();
             if($resultado->num_rows>0){
-                return "no";
+                header('Content-type: application/json');
+                $response['status'] = 'no';
+                return $response;
             }  
         }
         if ($stmt2 = $this->getDB()->prepare( "SELECT * from  usuario WHERE nick=? " )){
@@ -254,10 +271,14 @@ class Usuario extends ClaseBase {
             $stmt2->execute();
             $resultado = $stmt2->get_result();
             if($resultado->num_rows>0){
-                return "no";
+                header('Content-type: application/json');    
+                $response['status'] = 'no';
+                return $response;
             }  
         }
-        return "si";
+        header('Content-type: application/json');    
+        $response['status'] = 'si';
+        return $response;
    } 
 }
 ?>

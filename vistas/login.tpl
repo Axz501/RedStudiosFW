@@ -3,10 +3,10 @@
 		<div class="modal-dialog modal-lg" >
 
 			<!-- Modal content-->
-			<div class="modal-content" style="background-color:white;width:100%;margin-left:auto;margin-right:auto;">
+			<div class="modal-content" style="background-color:red;width:100%;margin-left:auto;margin-right:auto;">
 				<div class="modal-header">
 					<button id="cerrarmodal2" type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title" style="font-weight:bold;color:black;font-size:30px">Login</h4>
+					<h4 class="modal-title" style="font-weight:bold;color:white;font-size:30px">Login</h4>
 				</div>
 				<div class="modal-body" style="background-color:white;">
 					<form id="loginform">
